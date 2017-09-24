@@ -17,8 +17,16 @@
 	</bean>
 	
 	<!-- Enables the Spring MVC @Controller programming model -->
-	<mvc:annotation-driven />
-	
+	<mvc:annotation-driven validator="validator" />
+
+	<bean id="errorMessageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basename" value="classpath:errormessage"/>
+	</bean>
+
+	<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+		<property name="validationMessageSource" ref="errorMessageSource" />
+	</bean>
+
 	<!-- Configure static resources -->
 	<mvc:resources mapping="/resources/**" location="/WEB-INF/resources/" />
 	<mvc:default-servlet-handler/>
