@@ -38,6 +38,8 @@ public class UserProfile {
 	private String countriesLived;
 	@OneToMany(fetch=FetchType.LAZY ,cascade=CascadeType.ALL)
 	private List<Request> request=new ArrayList<Request>();
+	@OneToMany(fetch=FetchType.LAZY ,cascade=CascadeType.ALL)
+	private List<Reference> userReference=new ArrayList<Reference>();
 	
 	public List<Request> getRequest() {
 		return request;
@@ -45,7 +47,7 @@ public class UserProfile {
 	public void setRequest(List<Request> request) {
 		this.request = request;
 	}
-	private List<Reference> userReference=new ArrayList<Reference>();
+	
 	public List<Reference> getUserReference() {
 		return userReference;
 	}
