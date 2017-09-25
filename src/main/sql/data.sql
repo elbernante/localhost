@@ -1,0 +1,1 @@
+insert into SampleModel (name) values ('Sample Model');
