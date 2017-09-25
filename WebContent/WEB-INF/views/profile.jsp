@@ -11,10 +11,10 @@
 </head>
 <body>
 	<sec:authentication property="principal" var="user"/>
-	<h2>Welcome ${ user.username } !!!</h2>
-	<h4>User's home dashboard goes here.</h4>
-	<p>Add whatever interesting things you like here (e.g. travelers to your city, events nearby, search functions, etc...)</p>
-	<a href="<spring:url value='/profile/${ user.username }' />">My Profile</a>
+	<h2>${ user.username }'s Profile</h2>
+	<h4>Photos, home, and more info about ${ user.username } here.</h4>
+	<button type="button">Send Request</button>
+	<button type="button">Leave Reference</button>
 	<p>
 		<a href="<spring:url value='/logout' />">Log out</a>
 	</p>
