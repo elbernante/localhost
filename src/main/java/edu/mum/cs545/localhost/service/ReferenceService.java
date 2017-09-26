@@ -24,8 +24,8 @@ public class ReferenceService {
 		return referenceRepository.save(reference);
 	}
 	
-	public List<Reference> listReferences(Long userId) {
-		//return referenceRepository.findAllByUserId(userId);
+	public List<Reference> listReferences(String userName) {
+		//return referenceRepository.findAllByUserId(userName);
 		
 		Reference r = new Reference();
 		r.setId(10L);

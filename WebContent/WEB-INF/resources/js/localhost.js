@@ -1,13 +1,14 @@
-alert("ENTROU");
-
 $(function() {
-	alert("ENTROU");
+	var contextRoot = window.location.pathname.split('/')[1];
+	var requestData = {
+		userName:$("#username").val()
+	};
+	
 	$.ajax({
-		url:"/reference",
+		url:'/' + contextRoot + '/reference',
 		type:"get",
 		dataType:"json",
-		//data:$("#username"),
-		data:"10",
+		data:requestData,
 		contextType:"application/json",
 	}).done(function(response) {
 		$.each(response, function(i, elem) {
