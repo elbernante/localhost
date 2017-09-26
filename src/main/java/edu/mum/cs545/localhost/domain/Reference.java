@@ -30,6 +30,8 @@ public class Reference {
 	@ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	@JoinColumn(name="id", insertable=false, updatable=false)
 	private User user;
+	
+	private ReferenceType referenceType;
 
 	public Long getId() {
 		return id;
@@ -61,5 +63,13 @@ public class Reference {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+	
+	public ReferenceType getReferenceType() {
+		return referenceType;
+	}
+	
+	public void setReferenceType(ReferenceType referenceType) {
+		this.referenceType = referenceType;
 	}
 }

@@ -17,6 +17,7 @@
 	<h2>${ user.username }'s Profile</h2>
 	<h4>Photos, home, and more info about ${ user.username } here.</h4>
 	<button type="button">Send Request</button>
+	<a href="<spring:url value='/addrequest'/>">Send Request</a>
 	<button type="button">Leave Reference</button>
 	<p>
 		<a href="<spring:url value='/logout' />">Log out</a>
