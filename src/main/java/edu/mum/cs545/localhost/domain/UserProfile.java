@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.Valid;
+import javax.validation.constraints.Size;
 
 @Entity
 public class UserProfile {
@@ -27,8 +28,11 @@ public class UserProfile {
 	@Valid
 	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private Address location;
-	
-	private  HostingStatus HostingStatus;
+	@Size(min=5 , max=50)
+	private String firstName;
+	@Size(min=5 , max=50)
+	private String lastName;
+	private HostingStatus HostingStatus;
 	private String occupation;
 	private String education;
 	private String language;
@@ -41,6 +45,19 @@ public class UserProfile {
 	@OneToMany(fetch=FetchType.LAZY ,cascade=CascadeType.ALL)
 	private List<Reference> userReference=new ArrayList<Reference>();
 	
+	public String getFirstName() {
+		return firstName;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
 	public List<Request> getRequest() {
 		return request;
 	}
@@ -126,6 +143,9 @@ public class UserProfile {
 		this.user = user;
 	}
 	
-	
+	public void addRequest(Request req)
+	{
+		request.add(req);
+	}
 	
 }
