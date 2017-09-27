@@ -3,7 +3,7 @@ $(function() {
 	// Hide Post Reference form on view load.
 	$("#postReferenceForm").hide();
 	
-	// Show Post Reference form on button click.
+	// Show Post Reference form on "postReference" button click.
 	$("#postReference").click(function() {
 		$("header").hide();
 		$("nav").hide();
@@ -11,9 +11,10 @@ $(function() {
 		$("#postReferenceForm").show();
 		
 		$("#referenceFormDescription").val("");
+		$("#referenceFormError").html("");
 	});
 	
-	// Hide Post Reference form on button click.
+	// Hide Post Reference form on "referenceFormCancel" button click.
 	$("#referenceFormCancel").click(function() {
 		$("header").show();
 		$("nav").show();
@@ -23,7 +24,7 @@ $(function() {
 		$("#referenceFormDescription").val("");
 	});
 	
-	// Submit Post Reference form on button click.
+	// Submit Post Reference form on "referenceFormConfirm" button click.
 	$("#referenceFormConfirm").click(function() {
 		var contextRoot = window.location.pathname.split('/')[1];
 		
@@ -33,7 +34,7 @@ $(function() {
 		};
 		
 		$.ajax({
-			url:'/' + contextRoot + '/reference1',
+			url:'/' + contextRoot + '/reference',
 			type:"post",
 			dataType:"json",
 			data:requestData,
@@ -46,7 +47,6 @@ $(function() {
 			
 			loadReferenceList();
 		}).fail(function(response) {
-			alert("Error posting reference.");
 			$("#referenceFormError").css("color", "red").html("Error posting reference.");
 		});
 	});
@@ -75,5 +75,6 @@ $(function() {
 		});
 	};
 	
+	// Call Load Reference list section function on view load.
 	loadReferenceList();
 });
