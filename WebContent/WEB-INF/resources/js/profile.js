@@ -71,7 +71,6 @@ $(function() {
 				$("#referenceList").append("<p>" + elem.date + " - " + elem.id + " - " + elem.description + "</p>");
 			});
 		}).fail(function(response) {
-			alert("ERROR");
 		});
 	};
 	

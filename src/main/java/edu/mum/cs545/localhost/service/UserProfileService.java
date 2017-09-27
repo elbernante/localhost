@@ -1,5 +1,7 @@
 package edu.mum.cs545.localhost.service;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 import javax.transaction.Transactional.TxType;
 
@@ -20,5 +22,9 @@ public class UserProfileService {
 	public UserProfile getCurrentUserProfile() {
 		String username = SecurityContextHolder.getContext().getAuthentication().getName();
 		return userProfileRepository.findByUser_Username(username);
+	}
+	
+	public List<UserProfile> listUserProfile(String city, String state, String country) {
+		return userProfileRepository.findAllByPlace(city, state, country);
 	}
 }
