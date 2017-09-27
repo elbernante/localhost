@@ -21,11 +21,21 @@ public class ReferenceService {
 	private ReferenceRepository referenceRepository;
 	
 	public Reference addReference(Reference reference) {
-		return referenceRepository.save(reference);
+		reference.setDate(new Date());
+		//reference.setUser(user); -- GET FROM SESSION CURRENT USER
+		
+		//return referenceRepository.save(reference);
+		
+		Reference r = new Reference();
+		r.setId(2L);
+		r.setDescription(reference.getDescription());
+		r.setDate(new Date());
+		
+		return r;
 	}
 	
-	public List<Reference> listReferences(String userName) {
-		//return referenceRepository.findAllByUserId(userName);
+	public List<Reference> listReferences(String userId) {
+		//return referenceRepository.findAllByUserId(userId);
 		
 		Reference r = new Reference();
 		r.setId(10L);

@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="Reference")
@@ -22,16 +24,19 @@ public class Reference {
 	private Long id;
 	
 	@Column(nullable=false)
+	//@NotEmpty(message="{notEmpty}")
 	private String description;
 	
 	@Column(nullable=false)
+	//@NotNull(message="{notNull}")
 	private Date date;
 	
 	@ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	@JoinColumn(name="id", insertable=false, updatable=false)
+	//@NotNull(message="{notNull}")
 	private User user;
 	
-	private ReferenceType referenceType;
+	//private ReferenceType referenceType;
 
 	public Long getId() {
 		return id;
@@ -65,11 +70,11 @@ public class Reference {
 		this.user = user;
 	}
 	
-	public ReferenceType getReferenceType() {
-		return referenceType;
-	}
-	
-	public void setReferenceType(ReferenceType referenceType) {
-		this.referenceType = referenceType;
-	}
+//	public ReferenceType getReferenceType() {
+//		return referenceType;
+//	}
+//	
+//	public void setReferenceType(ReferenceType referenceType) {
+//		this.referenceType = referenceType;
+//	}
 }

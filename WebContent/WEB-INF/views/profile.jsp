@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -18,10 +19,17 @@
 	<h4>Photos, home, and more info about ${ user.username } here.</h4>
 	<button type="button">Send Request</button>
 	<a href="<spring:url value='/addrequest'/>">Send Request</a>
-	<button type="button">Leave Reference</button>
+	<button type="button" id="leaveReference">Leave Reference</button>
 	<p>
 		<a href="<spring:url value='/logout' />">Log out</a>
 	</p>
+	<div id="leaveReferenceForm">
+		<h4>Leave Reference</h4>
+		<form id="referenceForm">
+			<input id="referenceFormDescription" />
+			<button id="leaveReferenceConfirmButton">Confirm</button>
+		</form>
+	</div>
 	<div>
 		<h4>References</h4>
 		<div id="references"></div>
