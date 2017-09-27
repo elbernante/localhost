@@ -8,6 +8,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>Profile</title>
+	<link rel="stylesheet" type="text/css" href="<spring:url value="/resources/css/common.css" />" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="<spring:url value="/resources/js/profile.js" />"></script>
 </head>
@@ -35,10 +36,12 @@
 		<label for="referenceFormDescription"><spring:message code="view.profile.referenceFormDescription" /></label>
 		<input id="referenceFormDescription" />
 		<button id="referenceFormConfirm">Confirm</button>
+		<button id="referenceFormCancel">Cancel</button>
+		<p id="referenceFormError"></p>
 	</section>
 	<section id="references">
 		<h4>References</h4>
-		<div id="referencesList"></div>
+		<div id="referenceList"></div>
 	</section>
 </body>
 </html>

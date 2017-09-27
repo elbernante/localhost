@@ -23,9 +23,13 @@
 
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:3306/localhost?useSSL=false" />
+		<!-- <property name="url" value="jdbc:mysql://localhost:3306/localhost?useSSL=false" />
 		<property name="username" value="root" />
-		<property name="password" value="root" />
+		<property name="password" value="root" /> -->
+		
+		<property name="url" value="jdbc:mysql://sql3.freemysqlhosting.net:3306/sql3194262?useSSL=false" />
+		<property name="username" value="sql3194262" />
+		<property name="password" value="HL2RdVcIKF" />
 	</bean>
 
 	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
