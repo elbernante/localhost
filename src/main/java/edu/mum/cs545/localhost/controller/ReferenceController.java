@@ -22,7 +22,8 @@ public class ReferenceController {
 
 	@RequestMapping(value="", method=RequestMethod.POST)
 	//public @ResponseBody Reference addReference(@Valid @RequestBody Reference reference) {
-	public @ResponseBody Reference addReference(@RequestParam("description") String description) {
+	public @ResponseBody Reference addReference(@RequestParam("type") String type,
+			@RequestParam("description") String description) {
 		//return referenceService.addReference(reference);
 		
 		Reference r = new Reference();

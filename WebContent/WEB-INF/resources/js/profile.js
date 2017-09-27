@@ -1,16 +1,22 @@
 $(function() {
 	
-	// Reference Form.
-	$("#leaveReferenceForm").hide();
+	// Hide Post Reference form on view load.
+	$("#postReferenceForm").hide();
 	
-	$("#leaveReference").click(function() {
-		$("#leaveReferenceForm").show();
+	// Show Post Reference form on button click.
+	$("#postReference").click(function() {
+		$("#postReferenceForm").show();
+		$("header").block({message:'', overlayCSS:{backgroundColor:'#fff'}});
+		$("nav").block({message:'', overlayCSS:{backgroundColor:'#fff'}});
+		$("#references").block({message:'', overlayCSS:{backgroundColor:'#fff'}});
 	});
-
-	$("#leaveReferenceConfirmButton").click(function() {
+	
+	// Submit Post Reference form on button click.
+	$("#referenceFormConfirm").click(function() {
 		var contextRoot = window.location.pathname.split('/')[1];
 		
 		var requestData = {
+			type:$("#referenceFormType").val(),
 			description:$("#referenceFormDescription").val()
 		};
 		
@@ -29,7 +35,7 @@ $(function() {
 		});
 	});
 	
-	// Reference DIV
+	// Load Reference list section.
 	var contextRoot = window.location.pathname.split('/')[1];
 	var requestData = {
 		userName:$("#username").val()

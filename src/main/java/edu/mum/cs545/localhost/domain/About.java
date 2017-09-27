@@ -17,7 +17,7 @@ public class About {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
-	
+	/*
 	@OneToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	private UserProfile userProfile;
 	
@@ -107,5 +107,5 @@ public class About {
 	
 	private List<String> myFavorite;
 	
-
+*/
 }

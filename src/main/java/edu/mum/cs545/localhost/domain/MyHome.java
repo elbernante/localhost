@@ -16,7 +16,7 @@ public class MyHome {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
-	
+	/*
 	@OneToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	private UserProfile userProfile;
 
@@ -28,5 +28,5 @@ public class MyHome {
 	
 	private List<String> childrenPetSmoking;
 	
-	private String addInformation;
+	private String addInformation;*/
 }
