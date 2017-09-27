@@ -8,7 +8,6 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>Login | LocalHost</title>
-	<link rel="stylesheet" type="text/css" href="<spring:url value="/resources/css/common.css" />" />
 </head>
 <body>
 	<h3 class="panel-title">Please sign in</h3>

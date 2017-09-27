@@ -34,9 +34,9 @@ public class Reference {
 	@ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	@JoinColumn(name="id", insertable=false, updatable=false)
 	//@NotNull(message="{notNull}")
-	private User user;
+	private UserProfile userProfile;
 	
-	//private ReferenceType referenceType;
+	private ReferenceType referenceType;
 
 	public Long getId() {
 		return id;
@@ -61,20 +61,20 @@ public class Reference {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-
-	public User getUser() {
-		return user;
+	
+	public UserProfile getUserProfile() {
+		return userProfile;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setUserProfile(UserProfile userProfile) {
+		this.userProfile = userProfile;
+	}
+
+	public ReferenceType getReferenceType() {
+		return referenceType;
 	}
 	
-//	public ReferenceType getReferenceType() {
-//		return referenceType;
-//	}
-//	
-//	public void setReferenceType(ReferenceType referenceType) {
-//		this.referenceType = referenceType;
-//	}
+	public void setReferenceType(ReferenceType referenceType) {
+		this.referenceType = referenceType;
+	}
 }

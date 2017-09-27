@@ -5,7 +5,6 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>LocalHost</title>
-	<link rel="stylesheet" type="text/css" href="<spring:url value="/resources/css/common.css" />" />
 </head>
 <body>
 	<h1>LocalHost</h1>

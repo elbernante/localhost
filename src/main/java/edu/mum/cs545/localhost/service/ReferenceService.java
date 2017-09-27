@@ -34,7 +34,7 @@ public class ReferenceService {
 		return r;
 	}
 	
-	public List<Reference> listReferences(String userId) {
+	public List<Reference> listReferences(String username) {
 		//return referenceRepository.findAllByUserId(userId);
 		
 		Reference r = new Reference();
