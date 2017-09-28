@@ -89,7 +89,7 @@ public class Request {
 	public Long getId() {
 		return id;
 	}
-   @NotNull
+//   @NotNull
    @Min(value=1, message="{request.traveler.validation}")
    private Integer numberOfTraveler;
    private RequestStatus reqStatus;
@@ -97,7 +97,7 @@ public class Request {
    private UserProfile guest; 
    //many request belongs to one Userprofile
    @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
-   @Valid
+//   @Valid
    private UserProfile host;
 
 

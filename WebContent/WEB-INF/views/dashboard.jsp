@@ -18,10 +18,10 @@
 		<p>Add whatever interesting things you like here (e.g. travelers to your city, events nearby, search functions, etc...)</p>
 	</header>
 	<nav>
-		<a href="<spring:url value='/profile/${ user.username }' />">My Profile</a>
-		<button type="button" id="search"><spring:message code="dashboard.view.search" /></button>
-		<a href="<spring:url value='/itinerary' />">Plan a Trip</a>
-		<a href="<spring:url value='/viewRequest' />">Requests</a>
+		<button type="button" id="search"><spring:message code="dashboard.view.search" /></button><br />
+		<a href="<spring:url value='/profile/${ user.username }' />">My Profile</a><br />
+		<a href="<spring:url value='/itinerary' />">Plan a Trip</a><br />
+		<a href="<spring:url value='/viewRequest' />">Requests</a><br />
 		<a href="<spring:url value='/logout' />">Log out</a>
 	</nav>
 	<section id="">

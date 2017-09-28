@@ -31,9 +31,9 @@ public class RequestController {
 	UserProfileService userProfileService;
 
 	@RequestMapping(value ="/addrequest",method =RequestMethod.GET)
-	public String  request(@RequestParam("id") String id,@ModelAttribute("newRequest") Request req,Model model,Map map) {
-    System.out.println("id request for guest"+id);
-   
+	public String  request(@ModelAttribute("newRequest") Request req,Model model,Map map) {
+    //System.out.println("id request for guest"+id);
+	Long id = userProfileService.getCurrentUserProfile().getId();
 	model.addAttribute("id", id);
 	return  "hostRequest";
 		

@@ -43,7 +43,7 @@ public class SearchController {
 		Address address = new Address();
 		address.setCity("Recife");
 		address.setState("Pernambuco");
-		address.setCountry("Brazil");
+		address.setCountry("USA");
 		
 		userProfile.setLocation(address);
 		
@@ -61,7 +61,7 @@ public class SearchController {
 		address = new Address();
 		address.setCity("Gula");
 		address.setState("Gula State");
-		address.setCountry("Philipines");
+		address.setCountry("USA");
 		
 		userProfile.setLocation(address);
 		
