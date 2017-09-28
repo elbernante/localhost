@@ -14,9 +14,38 @@
 	<sec:authentication property="principal" var="user"/>
 	<div class="container content">
 		<h2>${ user.username }'s Travel Plans</h2>
-		<div>
-			<button>Add a Destination</button>
+		<div class="toolbar">
+			<button id="newDistination">Add a Destination</button>
 		</div>
+		<div class="itinerary-list">
+			<div class="list-entry">
+				<div class="label">Arrival Date:</div><div class="value">dd-MM-yyyy</div>
+				<div class="label">Departure Date:</div><div class="value">dd-MM-yyyy</div>
+				<div class="label">Destination:</div><div class="value">City, State, Country</div>
+				<div class="message">Message goes here</div>
+				<div class="buttons">
+					<button>Edit</button><br />
+					<button>Delete</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="popup-form">
+		<form id="itinerary-form" action="<spring:url value='/itinerary/save' />" method="post">
+			<h3>New Destination</h3>
+			<fieldset>
+				Arrival Date: <input type="text" name="arrivalDate" value="" /><br />
+				Departure Date: <input type="text" name="departureDate" value="" /><br />
+				City: <input type="text" name="city" value="" /><br />
+				State: <input type="text" name="state" value="" /><br />
+				Country: <input type="text" name="country" value="" /><br />
+				Message: <textarea rows="3" cols="40" name="message"></textarea>
+				<input type="hidden" name="id" value="" />
+				<input type="hidden" name="user.id" value="11" />
+			</fieldset>
+			<input type="submit" value="Post Destination" />
+		</form>
 	</div>
 
 	<!-- Scripts -->

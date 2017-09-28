@@ -10,3 +10,47 @@
 .content {
 	background-color: #FFF;
 }
+
+.toolbar {
+	text-align: right;
+}
+
+.itinerary-list {
+	width: 100%;
+}
+
+.list-entry {
+	position: relative;
+	padding: 5px;
+	margin: 10px 0px 10px 0px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+}
+
+.list-entry .label {
+	width: 20%;
+	display: inline-block;
+	float: left;
+}
+.list-entry .value {
+	width: 80%;
+	display: inline-block;
+	float: left;
+}
+
+.list-entry .buttons {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	
+}
+
+
+.popup-form {
+	position: fixed;
+	background-color: #e6e6e6;
+	width: 500px;
+	left: 50%;
+	transform: translateX(-50%);
+	top: 50px;
+}

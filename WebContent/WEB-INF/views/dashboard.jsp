@@ -20,6 +20,8 @@
 	<nav>
 		<a href="<spring:url value='/profile/${ user.username }' />">My Profile</a>
 		<button type="button" id="search"><spring:message code="dashboard.view.search" /></button>
+		<a href="<spring:url value='/itinerary' />">Plan a Trip</a>
+		<a href="<spring:url value='/viewRequest' />">Requests</a>
 		<a href="<spring:url value='/logout' />">Log out</a>
 	</nav>
 	<section id="">

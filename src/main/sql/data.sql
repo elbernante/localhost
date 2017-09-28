@@ -16,3 +16,6 @@ insert into Authority (id, user_id, authority) values (8, 7, 'USER_ROLE');
 
 insert into Credentials (id, username, password, enabled) values (9, 'peter', '$2a$04$onojKV4YJ8/T7v9eRzwM7.Qk0kv2rDztIN9odhY/ozm1PMmzUS9rG', true);
 insert into Authority (id, user_id, authority) values (10, 9, 'USER_ROLE');
+
+INSERT INTO Address (`id`, `city`, `state`, `street`, `zipCode`) VALUES ('1', 'Fairfield', 'IA', 'North Street', '55335');
+INSERT INTO UserProfile (`id`, `HostingStatus`, `aboutMe`, `countriesLived`, `countriesVisited`, `education`, `firstName`, `language`, `lastName`, `myInterests`, `occupation`, `location_id`, `user_id`) VALUES ('11', '1', 'about peter', 'nanan', 'nanana', 'papa', 'peter', 'english', 'bern', 'nothing', 'student', '1', '9');

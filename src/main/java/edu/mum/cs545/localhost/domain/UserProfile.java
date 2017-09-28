@@ -2,6 +2,7 @@ package edu.mum.cs545.localhost.domain;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -14,6 +15,11 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.Size;
+
+import org.apache.commons.fileupload.MultipartStream.ItemInputStream;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class UserProfile {
@@ -44,6 +50,10 @@ public class UserProfile {
 	private List<Request> request=new ArrayList<Request>();
 	@OneToMany(fetch=FetchType.LAZY ,cascade=CascadeType.ALL)
 	private List<Reference> userReference=new ArrayList<Reference>();
+	
+	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.PERSIST, mappedBy="user")
+	@JsonManagedReference
+	private List<Itinerary> itineraries = new ArrayList<>();
 	
 	public String getFirstName() {
 		return firstName;
@@ -148,4 +158,17 @@ public class UserProfile {
 		request.add(req);
 	}
 	
+	public List<Itinerary> getItineraries() {
+		return Collections.unmodifiableList(itineraries);
+	}
+	
+	public boolean addItinerary(Itinerary itinerary) {
+		itinerary.setUser(this);
+		return itineraries.add(itinerary);
+	}
+	
+	public boolean deleteItinerary(Itinerary itinerary) {
+		itinerary.setUser(null);
+		return itineraries.remove(itinerary);
+	}
 }
