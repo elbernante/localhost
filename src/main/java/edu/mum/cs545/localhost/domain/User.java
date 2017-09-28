@@ -13,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -34,6 +35,7 @@ public class User {
 	private String verifyPassword;
 	
 	private Boolean enabled = true;
+	
 	
 	@OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL, orphanRemoval=true)
 	@JoinColumn(name="user_id")
@@ -86,4 +88,10 @@ public class User {
 	public boolean removeAuthority(Authority authority) {
 		return this.authority.remove(authority);
 	}
+
+	
+	public void setAuthority(List<Authority> authority) {
+		this.authority = authority;
+	}
+	
 }

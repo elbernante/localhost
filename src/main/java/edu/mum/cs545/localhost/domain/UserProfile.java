@@ -46,8 +46,10 @@ public class UserProfile {
 	private String myInterests;
 	private String countriesVisited;
 	private String countriesLived;
+	
 	@OneToMany(fetch=FetchType.LAZY ,cascade=CascadeType.ALL)
 	private List<Request> request=new ArrayList<Request>();
+	
 	@OneToMany(fetch=FetchType.LAZY ,cascade=CascadeType.ALL)
 	private List<Reference> userReference=new ArrayList<Reference>();
 	

@@ -27,4 +27,25 @@ public class UserProfileService {
 	public List<UserProfile> listUserProfile(String city, String state, String country) {
 		return userProfileRepository.findAllByPlace(city, state, country);
 	}
+
+	public List<UserProfile> getAllRequest() {
+		
+		return userProfileRepository.findAll();
+	}
+
+	public UserProfile save(UserProfile userProfile) {
+		return userProfileRepository.save(userProfile);
+	}
+
+	public UserProfile update(UserProfile userProfile) {
+		return userProfileRepository.save(userProfile);
+	}
+
+	public UserProfile get(long id) {
+		return userProfileRepository.findOne(id);
+	}
+
+	public List<UserProfile> getAllUserProfileByContry(String country) {
+		return userProfileRepository.getUserByCountry(country);
+	}
 }

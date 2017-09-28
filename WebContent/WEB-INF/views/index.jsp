@@ -14,5 +14,8 @@
 		<spring:message code="greeting" text="Greetings" /> ${ sampleModel.name }!
 	</p>
 	<a href="<spring:url value='/login'></spring:url>">Login</a>
+	<a href="<spring:url value='profile/addProfile'></spring:url>">Register</a>
+	
+	
 </body>
 </html>

@@ -23,6 +23,8 @@
 		<button type="button">Send Request</button>
 		<a href="<spring:url value='/addrequest'/>">Send Request</a>
 		<button type="button" id="postReference"><spring:message code="profile.view.referenceFormTitle" /></button>
+		<a href="<spring:url value='/viewRequest'/>">show Request</a>
+		<a href="<spring:url value='/listhost'></spring:url>">List Host</a>
 		<a href="<spring:url value='/logout' />">Log out</a>
 	</nav>
 	<section id="postReferenceForm">

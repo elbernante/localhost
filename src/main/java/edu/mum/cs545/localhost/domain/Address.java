@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -14,11 +15,11 @@ public class Address {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
     
-	@NotEmpty(message="{String.empty}")
+	
 	private String street;
 	private String city;
 	
-	@Size(min=2, max=2, message="Size.state")
+	
 	private String state;
 
   	private String zipCode;
@@ -28,6 +29,7 @@ public class Address {
 	public String getStreet() {
 		return street;
 	}
+	
 	public void setStreet(String street) {
 		this.street = street;
 	}
