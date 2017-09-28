@@ -7,7 +7,7 @@
 	<title>LocalHost</title>
 </head>
 <body>
-	<h1>LocalHost</h1>
+	<h1><img height="40" width="40" alt="logo" src="<spring:url value='/resources/images/localhost.png' />"> LocalHost</h1>
 	<hr />
 	<h4>See the world through the eyes of a local</h4>
 	<p>
