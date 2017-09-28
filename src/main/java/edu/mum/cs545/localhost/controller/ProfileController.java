@@ -1,11 +1,15 @@
 package edu.mum.cs545.localhost.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import edu.mum.cs545.localhost.domain.About;
 import edu.mum.cs545.localhost.domain.Address;
 import edu.mum.cs545.localhost.domain.Authority;
 import edu.mum.cs545.localhost.domain.User;
@@ -74,4 +79,33 @@ public class ProfileController {
 		return address;
 	}
 	
+	@RequestMapping(value="/{username}/aboutme", method=RequestMethod.GET)
+	public String addABout(@PathVariable("username") String username,Model model) {
+		 Map<String, String> hostAvaliableList=new HashMap<String,String>();  
+		 hostAvaliableList.put("yes", "Accepting Guests");  
+		 hostAvaliableList.put("no", "Not Accepting Guests");  
+		 hostAvaliableList.put("hang", "Wants to Meet Up"); 
+	 	 model.addAttribute("hostAvaliableList",hostAvaliableList);
+	 	 model.addAttribute("about", new About());
+	 	 
+		 return "aboutMe";
+	}
+	
+	@RequestMapping(value="/{username}/aboutme", method=RequestMethod.POST)
+	public String saveAbout(@ModelAttribute("about") About about,Model model,RedirectAttributes redirectAttributes) {
+		about.setUserProfile(userProfileService.getCurrentUserProfile());
+		userProfileService.saveAbout(about);
+		redirectAttributes.addFlashAttribute( "about", about);
+		return "redirect:/profile/aboutView";
+	}
+	
+	@RequestMapping(value="/aboutView", method=RequestMethod.GET)
+	public String aboutView(Model model) {
+		
+		About about = (About)( ((ModelMap) model).get("about") );
+
+		return "aboutView";
+	}
+	
 }
+

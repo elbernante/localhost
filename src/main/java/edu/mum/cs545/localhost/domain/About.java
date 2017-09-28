@@ -3,12 +3,16 @@ package edu.mum.cs545.localhost.domain;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.CollectionTable;
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.JoinColumn;
 
 
 @Entity
@@ -17,7 +21,7 @@ public class About {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
-	/*
+	
 	@OneToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	private UserProfile userProfile;
 	
@@ -28,6 +32,18 @@ public class About {
 	private String occupation;
 	
 	private String education;
+	
+	@ElementCollection
+	@CollectionTable(
+	        name="LANGUAGE",
+	        joinColumns=@JoinColumn(name="ABOUT_ID")
+	  )
+	@Column(name="LANGUAGE")
+	private List<String> languages;
+	
+	private String aboutMe;
+	
+	private String myFavorite;
 	
 	public Long getId() {
 		return id;
@@ -77,13 +93,7 @@ public class About {
 		this.education = education;
 	}
 
-	public List<String> getLanguages() {
-		return languages;
-	}
 
-	public void setLanguages(List<String> languages) {
-		this.languages = languages;
-	}
 
 	public String getAboutMe() {
 		return aboutMe;
@@ -93,19 +103,22 @@ public class About {
 		this.aboutMe = aboutMe;
 	}
 
-	public List<String> getMyFavorite() {
+	
+
+	public List<String> getLanguages() {
+		return languages;
+	}
+
+	public void setLanguages(List<String> languages) {
+		this.languages = languages;
+	}
+
+	public String getMyFavorite() {
 		return myFavorite;
 	}
 
-	public void setMyFavorite(List<String> myFavorite) {
+	public void setMyFavorite(String myFavorite) {
 		this.myFavorite = myFavorite;
 	}
 
-	private 	List<String> languages;
-	
-	private String aboutMe;
-	
-	private List<String> myFavorite;
-	
-*/
 }

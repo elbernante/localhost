@@ -9,7 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import edu.mum.cs545.localhost.domain.About;
 import edu.mum.cs545.localhost.domain.UserProfile;
+import edu.mum.cs545.localhost.repository.AboutMeRepository;
 import edu.mum.cs545.localhost.repository.UserProfileRepository;
 
 @Service
@@ -18,6 +20,9 @@ public class UserProfileService {
 	
 	@Autowired
 	private UserProfileRepository userProfileRepository;
+	
+	@Autowired
+	private AboutMeRepository aboutMeRepository;
 	
 	public UserProfile getCurrentUserProfile() {
 		String username = SecurityContextHolder.getContext().getAuthentication().getName();
@@ -47,5 +52,9 @@ public class UserProfileService {
 
 	public List<UserProfile> getAllUserProfileByContry(String country) {
 		return userProfileRepository.getUserByCountry(country);
+	}
+	
+	public About saveAbout(About about) {
+		return aboutMeRepository.save(about);
 	}
 }
