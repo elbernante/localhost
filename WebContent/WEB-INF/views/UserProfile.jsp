@@ -13,13 +13,13 @@
 </head>
 <body>
 
-	<h1> Send Host Request</h1>
+	<h1>Hi! This is Your Registration Page</h1>
 		
 	<button type="submit" id="btnSend" class="btn btn-primary" class="btn btn-default btn-lg" onclick="make_visible('addressForm')">Add Address</button>
 				
   <form:form action="addProfile" modelAttribute="newUserProfile" method="post">
   <fieldset>
-				<legend>Send Request</legend>
+				<legend>Registration</legend>
 
 				<form:errors path="*" cssClass="alert alert-danger" element="div"/>
 				<div class="form-group">
