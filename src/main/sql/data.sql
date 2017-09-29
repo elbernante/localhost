@@ -23,3 +23,5 @@ INSERT INTO UserProfile (`id`, `HostingStatus`, `aboutMe`, `countriesLived`, `co
 INSERT INTO Address (`id`, `city`, `state`, `street`, `zipCode`) VALUES ('2', 'Fairfield', 'IA', 'North Street', '55335');
 INSERT INTO UserProfile (`id`, `HostingStatus`, `aboutMe`, `countriesLived`, `countriesVisited`, `education`, `firstName`, `language`, `lastName`, `myInterests`, `occupation`, `location_id`, `user_id`) VALUES ('12', '2', 'about yang', 'USA', 'nanana', 'papa', 'yang', 'chineses', 'yu', 'nothing', 'stud	ent', '2', '7');
 
+insert into Reference (id, description, date, userProfileId, referenceType) values (1, 'He is a good guy.', '2017-3-04', 11, 1);
+insert into Reference (id, description, date, userProfileId, referenceType) values (2, 'Not a good experience.', '2017-6-02', 11, 1);

@@ -1,6 +1,5 @@
 package edu.mum.cs545.localhost.service;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -34,23 +33,13 @@ public class ReferenceService {
 		return r;
 	}
 	
-	public List<Reference> listReferences(String username) {
-		//return referenceRepository.findAllByUserId(userId);
+	public List<Reference> listReferences(Long userProfileId) {
+		List<Reference> referenceList = referenceRepository.findAllByUserId(userProfileId);
 		
-		Reference r = new Reference();
-		r.setId(10L);
-		r.setDescription("Test");
-		r.setDate(new Date());
+		for (Reference reference : referenceList) {
+			reference.setUserProfile(null);
+		}
 		
-		Reference r2 = new Reference();
-		r2.setId(20L);
-		r2.setDescription("Test2");
-		r2.setDate(new Date());
-		
-		List<Reference> list = new ArrayList<Reference>();
-		list.add(r);
-		list.add(r2);
-		
-		return list;
+		return referenceList;
 	}
 }

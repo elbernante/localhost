@@ -68,7 +68,10 @@ $(function() {
 			$("#referenceList").html("");
 			
 			$.each(response, function(i, elem) {
-				$("#referenceList").append("<p>" + elem.date + " - " + elem.id + " - " + elem.description + "</p>");
+				var date = new Date(elem.date);
+				var month = date.getMonth() + 1;
+				date = date.getDate() + "/" + month + "/" + date.getFullYear();
+				$("#referenceList").append("<p>" + date + " - " + elem.id + " - " + elem.description + "</p>");
 			});
 		}).fail(function(response) {
 		});

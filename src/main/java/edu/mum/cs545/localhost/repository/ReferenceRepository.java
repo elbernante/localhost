@@ -16,6 +16,6 @@ import edu.mum.cs545.localhost.domain.Reference;
 @Transactional(value=TxType.MANDATORY)
 public interface ReferenceRepository extends JpaRepository<Reference, Long> {
 	
-	@Query("select r from Reference r where r.userProfile.user.username = :username")
-	List<Reference> findAllByUserId(@Param("username") String username);
+	@Query("select r from Reference r where r.userProfile.id = :userProfileId")
+	List<Reference> findAllByUserId(@Param("userProfileId") Long userProfileId);
 }
