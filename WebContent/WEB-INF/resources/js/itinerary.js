@@ -1,8 +1,6 @@
 $(function () {
 	
-	var contextRoot = window.location.pathname.split('/')[1];
-	console.log("Document ready!");
-	console.log($("#newDistination"));
+	const contextRoot = window.location.pathname.split('/')[1];
 	
 	const fillupForm = function (data) {
 		$form = $("#itinerary-form");

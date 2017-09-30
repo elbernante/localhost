@@ -14,7 +14,9 @@ public class UserProfileIdentityJsonSerializer extends JsonSerializer<UserProfil
 	@Override
 	public void serialize(UserProfile value, JsonGenerator gen, SerializerProvider serializers)
 			throws IOException, JsonProcessingException {
-		gen.writeObject(value.getId());
+		gen.writeStartObject();
+		gen.writeNumberField("id", value.getId());
+		gen.writeEndObject();
 	}
 	
 }
