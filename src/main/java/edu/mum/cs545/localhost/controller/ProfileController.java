@@ -36,7 +36,9 @@ public class ProfileController {
 	private PasswordEncoder passwordEncoder;
 	
 	@RequestMapping(value="/{username}", method=RequestMethod.GET)
-	public String view(@PathVariable("username") String username) {
+	public String view(@PathVariable("username") String username, Model model) {
+		model.addAttribute("userProfile", userProfileService.getByUsername(username));
+		
 		return "profile";
 	}
 	

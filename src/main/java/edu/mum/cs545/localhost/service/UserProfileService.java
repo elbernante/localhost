@@ -86,4 +86,8 @@ public class UserProfileService {
 	public About saveAbout(About about) {
 		return aboutMeRepository.save(about);
 	}
+	
+	public UserProfile getByUsername(String userName) {
+		return userProfileRepository.findByUser_Username(userName);
+	}
 }

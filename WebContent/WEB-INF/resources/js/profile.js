@@ -71,7 +71,7 @@ $(function() {
 				var date = new Date(elem.date);
 				var month = date.getMonth() + 1;
 				date = date.getDate() + "/" + month + "/" + date.getFullYear();
-				$("#referenceList").append("<p>" + date + " - " + elem.id + " - " + elem.description + "</p>");
+				$("#referenceList").append("<p>" + date + " - " + elem.userProfile.firstName + " " + elem.userProfile.lastName + " - " + elem.description + "</p>");
 			});
 		}).fail(function(response) {
 		});

@@ -15,9 +15,9 @@
 <body>
 	<header>
 		<sec:authentication property="principal" var="user"/>
-		<input type="hidden" id="username" value="${user.username}" />
-		<h2>${ user.username }'s <spring:message code="profile.view.title" /></h2>
-		<h4>Photos, home, and more info about ${ user.username } here.</h4>
+		<input type="hidden" id="username" value="${userProfile.user.username}" />
+		<h2>${userProfile.firstName} ${userProfile.lastName}'s <spring:message code="profile.view.title" /></h2>
+		<h4>Photos, home, and more info here.</h4>
 	</header>
 	<nav>
 		<button type="button" id="postReference"><spring:message code="profile.view.referenceFormTitle" /></button><br />

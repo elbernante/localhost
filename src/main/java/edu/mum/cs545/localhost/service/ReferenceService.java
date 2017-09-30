@@ -1,5 +1,6 @@
 package edu.mum.cs545.localhost.service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -10,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import edu.mum.cs545.localhost.domain.Reference;
+import edu.mum.cs545.localhost.domain.UserProfile;
 import edu.mum.cs545.localhost.repository.ReferenceRepository;
 
 @Service
@@ -33,13 +35,26 @@ public class ReferenceService {
 		return r;
 	}
 	
-	public List<Reference> listReferences(Long userProfileId) {
-		List<Reference> referenceList = referenceRepository.findAllByUserId(userProfileId);
+	public List<Reference> listReferences(String userName) {
+		List<Reference> referenceList = referenceRepository.findAllByUserUserName(userName);
+		List<Reference> referenceListReturn = new ArrayList<Reference>();
+		Reference referenceReturn;
+		UserProfile userProfile;
 		
 		for (Reference reference : referenceList) {
-			reference.setUserProfile(null);
+			referenceReturn = new Reference();
+			referenceReturn.setDate(reference.getDate());
+			referenceReturn.setDescription(reference.getDescription());
+			
+			userProfile = new UserProfile();
+			userProfile.setFirstName(reference.getUserProfile().getFirstName());
+			userProfile.setLastName(reference.getUserProfile().getLastName());
+			
+			referenceReturn.setUserProfile(userProfile);
+			
+			referenceListReturn.add(referenceReturn);
 		}
 		
-		return referenceList;
+		return referenceListReturn;
 	}
 }

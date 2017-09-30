@@ -23,5 +23,4 @@ public interface UserProfileRepository extends JpaRepository<UserProfile, Long> 
 	@Query("select u from UserProfile u inner join u.location inner join u.user where u.location.city = :city or u.location.state = :state or u.location.country = :country")
 	List<UserProfile> findAllByPlace(@Param("city") String city, @Param("state") String state,
 		@Param("country") String country);
-
 }

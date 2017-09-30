@@ -35,7 +35,7 @@ public class ReferenceController {
 	}
 	
 	@RequestMapping(value="", method=RequestMethod.GET)
-	public @ResponseBody List<Reference> listReferences(@RequestParam("userName") String userProfileId) {
-		return referenceService.listReferences(11L);
+	public @ResponseBody List<Reference> listReferences(@RequestParam("userName") String userName) {
+		return referenceService.listReferences(userName);
 	}
 }
