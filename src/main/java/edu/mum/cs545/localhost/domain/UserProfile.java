@@ -16,11 +16,6 @@ import javax.persistence.OneToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.Size;
 
-import org.apache.commons.fileupload.MultipartStream.ItemInputStream;
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 @Entity
 public class UserProfile {
 	@Id
@@ -54,7 +49,6 @@ public class UserProfile {
 	private List<Reference> userReference=new ArrayList<Reference>();
 	
 	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.PERSIST, mappedBy="user")
-	@JsonManagedReference
 	private List<Itinerary> itineraries = new ArrayList<>();
 	
 	public void setId(Long id) {

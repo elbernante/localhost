@@ -12,17 +12,24 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
 
-import org.springframework.format.annotation.DateTimeFormat;
+import org.hibernate.validator.constraints.NotBlank;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
+import edu.mum.cs545.localhost.domain.validation.NotLessThanValue;
+import edu.mum.cs545.localhost.util.CustomDateSerializer;
 import edu.mum.cs545.localhost.util.UserProfileIdentityJsonSerializer;
 
+@NotLessThanValue(
+		baseField = "arrivalDate",
+		greaterThanField = "departureDate",
+		message="{departureDate} {localhost.domain.notbeforedate} {arrivalDate}"
+)
 @Entity
 public class Itinerary {
 
@@ -32,29 +39,32 @@ public class Itinerary {
 	
 	@ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.PERSIST, optional=false)
 	@JsonSerialize(using=UserProfileIdentityJsonSerializer.class)
-	@JsonBackReference
 	private UserProfile user;
 	
-	@NotNull
+	@NotNull(message="{NotNull}")
+	@Future(message="{Future}")
 	@Temporal(TemporalType.DATE)
-	@DateTimeFormat(pattern="dd-MM-yyyy")
+	@JsonFormat(shape=Shape.STRING, pattern="MM/dd/yyyy", timezone="CST")
+	@JsonSerialize(using=CustomDateSerializer.class)
 	private Date arrivalDate;
 	
-	@NotNull
+	@NotNull(message="{NotNull}")
+	@Future(message="{Future}")
 	@Temporal(TemporalType.DATE)
-	@DateTimeFormat(pattern="dd-MM-yyyy")
+	@JsonFormat(shape=Shape.STRING, pattern="MM/dd/yyyy", timezone="CST")
+	@JsonSerialize(using=CustomDateSerializer.class)
 	private Date departureDate;
 	
-//	@NotBlank
+	@NotBlank(message="{NotNull}")
 	private String city;
 	
 	private String state;
 	
-//	@NotBlank
+	@NotBlank(message="{NotNull}")
 	private String country;
 	
 	@Lob
-//	@NotBlank
+	@NotBlank(message="{NotNull}")
 	private String message;
 	
 	public Long getId() {

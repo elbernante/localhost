@@ -1,4 +1,4 @@
-insert into SampleModel (name) values ('Sample Model');
+insert into SampleModel (name) values ('Traveller');
 
 -- Dummy Users
 
@@ -25,3 +25,6 @@ INSERT INTO UserProfile (`id`, `HostingStatus`, `aboutMe`, `countriesLived`, `co
 
 insert into Reference (id, description, date, userProfileId, referenceType) values (1, 'He is a good guy.', '2017-3-04', 11, 1);
 insert into Reference (id, description, date, userProfileId, referenceType) values (2, 'Not a good experience.', '2017-6-02', 11, 1);
+
+INSERT INTO Itinerary (`id`, `arrivalDate`, `city`, `country`, `departureDate`, `message`, `state`, `user_id`) VALUES ('1', '2018-03-03', 'Fairfield', 'USA', '2018-03-05', 'Visiting Campus', 'IA', '11');
+INSERT INTO Itinerary (`id`, `arrivalDate`, `city`, `country`, `departureDate`, `message`, `state`, `user_id`) VALUES ('2', '2018-03-05', 'Chicago', 'USA', '2018-03-08', 'Love to see Chicago', 'IA', '11');

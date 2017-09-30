@@ -45,8 +45,8 @@
 	
 }
 
-
 .popup-form {
+	display: none;
 	position: fixed;
 	background-color: #e6e6e6;
 	width: 500px;
@@ -54,3 +54,4 @@
 	transform: translateX(-50%);
 	top: 50px;
 }
+

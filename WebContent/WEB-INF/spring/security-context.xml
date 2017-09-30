@@ -2,7 +2,7 @@
 <beans:beans xmlns="http://www.springframework.org/schema/security"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:beans="http://www.springframework.org/schema/beans"
-	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.2.xsd
+	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<beans:import resource="root-context.xml"/>
@@ -13,6 +13,7 @@
 	
 	<!-- security:http enables security filter mechanism...name space configuration is activated -->
 	<!-- use-expressions enables URL level authorization - allows SPEL syntax-->
+	
 	<http>
 		<intercept-url pattern="/" access="permitAll"/>
 		<intercept-url pattern="/login*" access="permitAll"/>
