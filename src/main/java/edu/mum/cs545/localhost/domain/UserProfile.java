@@ -57,6 +57,9 @@ public class UserProfile {
 	@JsonManagedReference
 	private List<Itinerary> itineraries = new ArrayList<>();
 	
+	public void setId(Long id) {
+		this.id = id;
+	}
 	public String getFirstName() {
 		return firstName;
 	}

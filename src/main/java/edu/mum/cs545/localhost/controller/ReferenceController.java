@@ -1,6 +1,5 @@
 package edu.mum.cs545.localhost.controller;
 
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,17 +20,10 @@ public class ReferenceController {
 	ReferenceService referenceService;
 
 	@RequestMapping(value="", method=RequestMethod.POST)
-	//public @ResponseBody Reference addReference(@Valid @RequestBody Reference reference) {
-	public @ResponseBody Reference addReference(@RequestParam("type") String type,
+	public @ResponseBody Reference addReference(@RequestParam("userName") String userName,
+			@RequestParam("type") String type,
 			@RequestParam("description") String description) {
-		//return referenceService.addReference(reference);
-		
-		Reference r = new Reference();
-		r.setId(2L);
-		r.setDescription(description);
-		r.setDate(new Date());
-		
-		return r;
+		return referenceService.addReference(userName, type, description);
 	}
 	
 	@RequestMapping(value="", method=RequestMethod.GET)

@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import edu.mum.cs545.localhost.domain.Reference;
+import edu.mum.cs545.localhost.domain.ReferenceType;
 import edu.mum.cs545.localhost.domain.UserProfile;
 import edu.mum.cs545.localhost.repository.ReferenceRepository;
 
@@ -19,20 +20,29 @@ import edu.mum.cs545.localhost.repository.ReferenceRepository;
 public class ReferenceService {
 	
 	@Autowired
+	private UserProfileService userProfileService;
+	
+	@Autowired
 	private ReferenceRepository referenceRepository;
 	
-	public Reference addReference(Reference reference) {
+	public Reference addReference(String userName, String type, String description) {
+		Reference reference = new Reference();
+		Long id = 1L;
+		
+		List<Reference> referenceList = referenceRepository.findAllOrderByIdDesc();
+		
+		if (referenceList != null && !referenceList.isEmpty()) {
+			id = referenceList.get(0).getId() + 1L;
+		}
+		
+		reference.setId(id);
+		reference.setUserProfile(userProfileService.getByUsername(userName));
+		reference.setDescription(description);
 		reference.setDate(new Date());
-		//reference.setUser(user); -- GET FROM SESSION CURRENT USER
 		
-		//return referenceRepository.save(reference);
+		referenceRepository.save(reference);
 		
-		Reference r = new Reference();
-		r.setId(2L);
-		r.setDescription(reference.getDescription());
-		r.setDate(new Date());
-		
-		return r;
+		return new Reference();
 	}
 	
 	public List<Reference> listReferences(String userName) {

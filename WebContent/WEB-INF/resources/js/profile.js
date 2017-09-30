@@ -29,6 +29,7 @@ $(function() {
 		var contextRoot = window.location.pathname.split('/')[1];
 		
 		var requestData = {
+			userName:$("#username").val(),
 			type:$("#referenceFormType").val(),
 			description:$("#referenceFormDescription").val()
 		};
@@ -71,7 +72,8 @@ $(function() {
 				var date = new Date(elem.date);
 				var month = date.getMonth() + 1;
 				date = date.getDate() + "/" + month + "/" + date.getFullYear();
-				$("#referenceList").append("<p>" + date + " - " + elem.userProfile.firstName + " " + elem.userProfile.lastName + " - " + elem.description + "</p>");
+				$("#referenceList").append("<p>" + date + " - " + elem.userProfile.firstName +
+					" " + elem.userProfile.lastName + " - " + elem.description + "</p>");
 			});
 		}).fail(function(response) {
 		});

@@ -32,7 +32,7 @@ public class Reference {
 	private Date date;
 	
 	@ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
-	@JoinColumn(name="userProfileId", insertable=false, updatable=false)
+	@JoinColumn(name="userProfileId", insertable=true, updatable=false)
 	//@NotNull(message="{notNull}")
 	private UserProfile userProfile;
 	

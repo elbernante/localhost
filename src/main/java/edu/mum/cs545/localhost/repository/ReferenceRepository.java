@@ -18,4 +18,7 @@ public interface ReferenceRepository extends JpaRepository<Reference, Long> {
 	
 	@Query("select r from Reference r where r.userProfile.user.username = :userName")
 	List<Reference> findAllByUserUserName(@Param("userName") String userName);
+	
+	@Query("select r from Reference r order by r.id desc")
+	List<Reference> findAllOrderByIdDesc();
 }
