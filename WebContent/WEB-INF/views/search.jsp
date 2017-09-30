@@ -1,7 +1,5 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ page import="edu.mum.cs545.localhost.domain.ReferenceType" %>
 
 <!DOCTYPE html>
 <html>
