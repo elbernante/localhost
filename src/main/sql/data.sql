@@ -21,7 +21,13 @@ INSERT INTO Address (`id`, `city`, `state`, `country`, `street`, `zipCode`) VALU
 INSERT INTO UserProfile (`id`, `HostingStatus`, `aboutMe`, `countriesLived`, `countriesVisited`, `education`, `firstName`, `language`, `lastName`, `myInterests`, `occupation`, `location_id`, `user_id`) VALUES ('11', '1', 'about peter', 'USA', 'nanana', 'papa', 'peter', 'english', 'bern', 'nothing', 'student', '1', '9');
 
 INSERT INTO Address (`id`, `city`, `state`, `country`, `street`, `zipCode`) VALUES ('2', 'Fairfield', 'IA', 'USA', 'North Street', '55335');
-INSERT INTO UserProfile (`id`, `HostingStatus`, `aboutMe`, `countriesLived`, `countriesVisited`, `education`, `firstName`, `language`, `lastName`, `myInterests`, `occupation`, `location_id`, `user_id`) VALUES ('12', '2', 'about yang', 'USA', 'nanana', 'papa', 'yang', 'chineses', 'yu', 'nothing', 'stud	ent', '2', '7');
+INSERT INTO UserProfile (`id`, `HostingStatus`, `aboutMe`, `countriesLived`, `countriesVisited`, `education`, `firstName`, `language`, `lastName`, `myInterests`, `occupation`, `location_id`, `user_id`) VALUES ('12', '2', 'about yang', 'USA', 'nanana', 'papa', 'yang', 'chineses', 'yu', 'nothing', 'student', '2', '7');
+
+INSERT INTO Address (`id`, `city`, `state`, `country`, `street`, `zipCode`) VALUES ('3', 'Recife', 'DL', 'Brazil', 'South Street', '11234');
+INSERT INTO UserProfile (`id`, `HostingStatus`, `aboutMe`, `countriesLived`, `countriesVisited`, `education`, `firstName`, `language`, `lastName`, `myInterests`, `occupation`, `location_id`, `user_id`) VALUES ('13', '1', 'about rafael', 'Brazil', 'nanana', 'papa', 'rafel', 'portuguese', 'costa', 'nothing', 'student', '3', '5');
+
+INSERT INTO Address (`id`, `city`, `state`, `country`, `street`, `zipCode`) VALUES ('4', 'Lakman', 'IA', 'Ethiopia', 'West Street', '22352');
+INSERT INTO UserProfile (`id`, `HostingStatus`, `aboutMe`, `countriesLived`, `countriesVisited`, `education`, `firstName`, `language`, `lastName`, `myInterests`, `occupation`, `location_id`, `user_id`) VALUES ('14', '1', 'about meron', 'France', 'nanana', 'papa', 'meron', 'french', 'tollosa', 'nothing', 'student', '4', '3');
 
 insert into Reference (id, description, date, userProfileId, referenceType) values (1, 'He is a good guy.', '2017-3-04', 11, 1);
 insert into Reference (id, description, date, userProfileId, referenceType) values (2, 'Not a good experience.', '2017-6-02', 11, 1);
