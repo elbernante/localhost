@@ -31,7 +31,7 @@ $(function() {
 			$.each(response, function(i, elem) {
 				$("#userList").append("<p>" + elem.firstName + " " + elem.lastName + "<br />" +
 					elem.location.city + ", " + elem.location.state + ", " + elem.location.country + "</p>")
-					.append("<button onclick='viewProfile(\"" + elem.user.username + "\")'>View Profile</button>");
+					.append("<button class='btn btn-primary' onclick='viewProfile(\"" + elem.user.username + "\")'>View Profile</button>");
 			});
 		}).fail(function(response) {
 		});

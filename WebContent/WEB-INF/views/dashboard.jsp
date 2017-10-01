@@ -1,31 +1,34 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>Dashboard</title>
-	<link rel="stylesheet" type="text/css" href="<spring:url value="/resources/css/common.css" />" />
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="<spring:url value="/resources/js/dashboard.js" />"></script>
-</head>
-<body>
-	<header>
-		<sec:authentication property="principal" var="user"/>
-		<h2>Welcome ${user.username} !!!</h2>
-		<h4>User's home dashboard goes here.</h4>
-		<p>Add whatever interesting things you like here (e.g. travelers to your city, events nearby, search functions, etc...)</p>
-	</header>
-	<nav>
-		<button type="button" id="search"><spring:message code="dashboard.view.search" /></button><br />
-		<a href="<spring:url value='/profile/${ user.username }' />">My Profile</a><br />
-		<a href="<spring:url value='/itinerary' />">Plan a Trip</a><br />
-		<a href="<spring:url value='/viewRequest' />">Requests</a><br />
-		<a href="<spring:url value='/logout' />">Log out</a>
-	</nav>
-	<section id="">
-		
-	</section>
-</body>
-</html>
+<div class="row">
+	<sec:authentication property="principal" var="user" />
+	<h2><spring:message code="dashboard.view.welcome" /> ${user.username}!</h2>
+</div>
+<div class="row">
+	<div class="col-30">
+		<div class="profile-pic-placholder">
+			<img class="profile-image-sm" alt="prrofile image" src="<spring:url value='/resources/images/user.png' />" />
+		</div>
+		<div>
+			<a class="btn btn-menu"  href="<spring:url value='/search/getForm' />"><spring:message code="dashboard.view.search" /></a>
+			<a class="btn btn-menu"  href="<spring:url value='/profile/${ user.username }' />"><spring:message code="dashboard.view.myprofile" /></a>
+			<a class="btn btn-menu" href="<spring:url value='/itinerary' />"><spring:message code="dashboard.view.planATrip" /></a>
+			<a class="btn btn-menu" href="<spring:url value='/viewRequest' />"><spring:message code="dashboard.view.requests" /></a>
+		</div>
+	</div>
+	<div class="col-70">
+		<div class="panel">
+			<h4><spring:message code="dashboard.view.upcomingTrips" /></h4>
+			<div id="trip-list"><spring:message code="dashboard.view.retrievingTrips" /></div>
+		</div>
+		<div class="panel">
+			<h4><spring:message code="dashboard.view.travelersToMyCity" /></h4>
+			<div id="traveler-list"><spring:message code="dashboard.view.noTravelers" /></div>
+		</div>
+		<div class="panel">
+			<h4><spring:message code="dashboard.view.eventInMyArea" /></h4>
+			<div id="traveler-list"><spring:message code="dashboard.view.noEvents" /></div>
+		</div>
+	</div>
+</div>

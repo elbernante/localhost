@@ -10,7 +10,7 @@ $(function () {
 	};
 	
 	const clearForm = function () {
-		$("#itinerary-form .errors ").html("");
+		$("#itinerary-form .error-message").html("");
 		$("#itinerary-form").find("input, textarea")
 							.filter(":not([type=button])")
 							.filter(":not([type=submit])")
@@ -26,14 +26,23 @@ $(function () {
 	};
 	
 	const ItenaryItem = ({arrivalDate, departureDate, city, state, country, message}) => `
-		<div class="list-entry">
-			<div class="label">Arrival Date:</div><div class="value">${arrivalDate}</div>
-			<div class="label">Departure Date:</div><div class="value">${departureDate}</div>
-			<div class="label">Destination:</div><div class="value">${city}, ${state}, ${country}</div>
-			<div class="message"><hr /><p>${message}</p></div>
-			<div class="buttons">
-				<button class="btnEdit">Edit</button><br />
-				<button class="btnDelete">Delete</button>
+		<div class="panel">
+			<div class="labeled-text">
+				<label>Arrival Date</label>
+				<span>${arrivalDate}</span>
+			</div>
+			<div class="labeled-text">
+				<label>Departure Date</label>
+				<span>${departureDate}</span>
+			</div>
+			<div class="labeled-text">
+				<label>Destination</label>
+				<span>${city}, ${state}, ${country}</span>
+			</div>
+			<blockquote>${message}</blockquote>
+			<div class="tool-bar">
+				<button class="btn btn-secondary btnEdit">Edit</button>
+				<button class="btn btn-secondary btnDelete">Delete</button>
 			</div>
 		</div>
 	`;
@@ -113,8 +122,8 @@ $(function () {
 				retriveTrips();
 			}, 
 			error: function (error) {
-				$errors = $("#itinerary-form .errors "); 
-				$("#itinerary-form .errors ").html("");
+				$errors = $("#itinerary-form .error-message"); 
+				$errors.html("");
 				
 				if (error.responseJSON) {
 					if (error.responseJSON.message) {

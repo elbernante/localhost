@@ -24,9 +24,4 @@ public class AuthenticationController {
 		}
 		return "login";
 	}
-//	
-//	@RequestMapping(value="/logout", method=RequestMethod.GET)
-//	public String logout() {
-//		return "redirect:/";
-//	}
 }

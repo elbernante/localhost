@@ -5,9 +5,7 @@ $(function() {
 	
 	// Show Post Reference form on "postReference" button click.
 	$("#postReference").click(function() {
-		$("header").hide();
-		$("nav").hide();
-		$("#references").hide();
+		$("#profile-page").hide();
 		$("#postReferenceForm").show();
 		
 		$("#referenceFormDescription").val("");
@@ -16,9 +14,7 @@ $(function() {
 	
 	// Hide Post Reference form on "referenceFormCancel" button click.
 	$("#referenceFormCancel").click(function() {
-		$("header").show();
-		$("nav").show();
-		$("#references").show();
+		$("#profile-page").show();
 		$("#postReferenceForm").hide();
 		
 		$("#referenceFormDescription").val("");
@@ -41,9 +37,7 @@ $(function() {
 			data:requestData,
 			contextType:"application/json",
 		}).done(function(response) {
-			$("header").show();
-			$("nav").show();
-			$("#references").show();
+			$("#profile-page").show();
 			$("#postReferenceForm").hide();
 			
 			loadReferenceList();

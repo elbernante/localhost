@@ -1,7 +1,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
-<!DOCTYPE html>
+<%-- <!DOCTYPE html>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -35,4 +35,24 @@
 		<div id="userList"></div>
 	</section>
 </body>
-</html>
+</html> --%>
+
+<header>
+	<h2><spring:message code="search.view.title" /></h2>
+</header>
+<section id="userForm">
+	<h4><spring:message code="search.view.userFormTitle" /></h4>
+	<label for="userFormCity"><spring:message code="search.view.userFormCity" /></label>
+	<input id="userFormCity" />
+	<label for="userFormState"><spring:message code="search.view.userFormState" /></label>
+	<input id="userFormState" />
+	<label for="userFormCountry"><spring:message code="search.view.userFormCountry" /></label>
+	<input id="userFormCountry" />
+	<button class="btn btn-primary" id="userFormConfirm"><spring:message code="search.view.userFormConfirm" /></button>
+</section>
+<section id="users">
+	<h4>
+		<spring:message code="search.view.users" />
+	</h4>
+	<div id="userList"></div>
+</section>

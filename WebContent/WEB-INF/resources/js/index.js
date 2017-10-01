@@ -1,0 +1,1 @@
+/*index page javascripts goes here*/
