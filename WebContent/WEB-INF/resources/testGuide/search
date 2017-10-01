@@ -1,0 +1,7 @@
+Reference test:
+
+1) Click "Login" button.
+2) Fill "User name" with "rafael" and "Password" with "password".
+3) Click "Search" button.
+4) Fill "Country" with "USA" and click "Search" button.
+5) Click on "View Profile" button of "peter bern" user.

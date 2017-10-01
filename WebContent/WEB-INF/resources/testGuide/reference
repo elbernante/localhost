@@ -1,0 +1,11 @@
+List and Post Reference test:
+
+1) Click "Login" button.
+2) Fill "User name" with "rafael" and "Password" with "password".
+3) Click "Search" button.
+4) Fill "Country" with "USA" and click "Search" button.
+5) Click on "View Profile" button of "peter bern" user.
+6) All references of "peter bern" user will be listed on "References" section.
+7) Click on "Post Reference" button.
+8) Select "Type" option and fill "Description" with anything then click "Confirm" button.
+9) The new reference will be inserted into DB and also will be listed on "Reference" section.
